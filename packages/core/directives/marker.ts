@@ -38,8 +38,7 @@ let markerId = 0;
 @Directive({
   selector: 'agm-marker',
   inputs: [
-    'latitude', 'longitude', 'title', 'label', 'draggable: markerDraggable', 'iconUrl',
-    'openInfoWindow', 'opacity', 'visible', 'zIndex', 'animation'
+    'latitude', 'longitude', 'title', 'label', 'draggable: markerDraggable', 'icon', 'openInfoWindow', 'opacity', 'visible', 'zIndex', 'animation'
   ],
   outputs: ['markerClick', 'dragEnd', 'mouseOver', 'mouseOut']
 })
@@ -71,10 +70,9 @@ export class AgmMarker implements OnDestroy, OnChanges, AfterContentInit {
   @Input('markerDraggable') draggable: boolean = false;
 
   /**
-   * Icon (the URL of the image) for the foreground.
+   * Icon for the foreground.
    */
-  @Input() iconUrl: string;
-
+  @Input() icon: any;
   /**
    * If true, the marker is visible
    */
@@ -179,7 +177,7 @@ export class AgmMarker implements OnDestroy, OnChanges, AfterContentInit {
     if (changes['draggable']) {
       this._markerManager.updateDraggable(this);
     }
-    if (changes['iconUrl']) {
+    if (changes['icon']) {
       this._markerManager.updateIcon(this);
     }
     if (changes['opacity']) {

@@ -89,7 +89,6 @@ describe('ClusterManager', () => {
                clickable: true
              }, false);
              const iconUrl = 'http://angular-maps.com/icon.png';
-             newMarker.iconUrl = iconUrl;
              return markerManager.updateIcon(newMarker).then(
                  () => { expect(markerInstance.setIcon).toHaveBeenCalledWith(iconUrl); });
            })));
